@@ -27,5 +27,5 @@ export const Message = styled.h2`
   font-size: 2rem;
   color: ${cores.corTexto};
   font-family: Roboto, sans-serif;
-  text-align: center;  // Garante que o texto esteja centralizado
+  text-align: center; // Garante que o texto esteja centralizado
 `
