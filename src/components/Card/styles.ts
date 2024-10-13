@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
 
 export const CardContainer = styled.div`
   background-color: #fff;
@@ -27,7 +28,7 @@ export const Title = styled.h3`
 
 export const Description = styled.p`
   font-size: 1rem;
-  color: #555;
+  color: ${cores.corTexto};
 `
 
 export const Rating = styled.span`
