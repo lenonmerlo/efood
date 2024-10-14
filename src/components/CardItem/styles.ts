@@ -21,23 +21,22 @@ export const Title = styled.h2`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 8px 16px 0;
 `
 
 export const Rating = styled.span`
   font-size: 1rem;
   color: #f39c12;
-  display: flex;
-  align-items: center;
 `
 
 export const Description = styled.p`
   font-size: 0.9rem;
   color: #333;
-  margin-top: 8px;
+  margin: 8px 16px; /* Margem lateral */
 `
 
 export const Button = styled.button`
-  margin-top: 16px;
+  margin: 16px;
   padding: 8px 16px;
   background-color: #e66767;
   color: white;
@@ -55,6 +54,7 @@ export const Tags = styled.div`
   left: 16px;
   display: flex;
   gap: 8px;
+  z-index: 1;
 `
 
 export const Tag = styled.span`

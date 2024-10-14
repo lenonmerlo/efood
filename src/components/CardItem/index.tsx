@@ -32,7 +32,7 @@ const CardItem: React.FC<CardItemProps> = ({
     </Tags>
     <Title>
       {title}
-      <Rating>⭐ {rating}</Rating>
+      <Rating>{rating} ⭐</Rating>
     </Title>
     <Description>{description}</Description>
     <Button>Saiba mais</Button>

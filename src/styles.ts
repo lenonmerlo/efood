@@ -23,7 +23,7 @@ export const GlobalCss = createGlobalStyle`
     background-color: ${cores.corFundo};
     color: ${cores.corTexto};
     font-family: Roboto, sans-serif;
-    padding-top: 40px;
+
 }
     .container {
     max-width: 1024px;
