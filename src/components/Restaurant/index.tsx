@@ -5,14 +5,9 @@ import {
   RestaurantHeader,
   RestaurantInfo,
   RestaurantTitle,
-  RestaurantCategory,
-  MenuItems,
-  MenuItem,
-  MenuItemImage,
-  MenuItemTitle,
-  MenuItemDescription,
-  AddToCartButton
-} from './styles'
+  RestaurantCategory
+} from './styles' // Removidos os estilos do Menu, pois já está em um componente separado
+import Menu from '../Menu' // Importando o componente Menu
 
 import pizzaImage from '../../assets/images/pizza.png' // Ajuste o caminho conforme necessário
 
@@ -26,19 +21,8 @@ const RestaurantPage = () => {
         </RestaurantInfo>
       </RestaurantHeader>
 
-      <MenuItems>
-        <MenuItem>
-          <MenuItemImage src={pizzaImage} alt="Pizza Marguerita" />
-          <MenuItemTitle>Pizza Marguerita</MenuItemTitle>
-          <MenuItemDescription>
-            A clássica Marguerita: molho de tomate suculento, mussarela
-            derretida, manjericão fresco e um toque de azeite.
-          </MenuItemDescription>
-          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
-        </MenuItem>
-
-        {/* Adicione outros cards aqui */}
-      </MenuItems>
+      {/* Aqui renderizamos o Menu */}
+      <Menu />
     </RestaurantContainer>
   )
 }
