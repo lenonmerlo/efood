@@ -3,40 +3,46 @@ import {
   CardItemContainer,
   Image,
   Title,
-  Description,
   Rating,
+  Description,
   Button,
   Tags,
   Tag
-} from './styles'
+} from './styles' // Importa os estilos do arquivo styles.ts
 
-interface CardItemProps {
+interface CardProps {
   title: string
   description: string
   rating: number
   imageSrc: string
+  tags?: string[] // Tags são opcionais
 }
 
-const CardItem: React.FC<CardItemProps> = ({
+const Card: React.FC<CardProps> = ({
   title,
   description,
   rating,
-  imageSrc
-}) => (
-  <CardItemContainer>
-    <Image src={imageSrc} alt={title} />
-    {/* Adicionando as tags */}
-    <Tags>
-      <Tag>Destaque da semana</Tag>
-      <Tag>Japonesa</Tag>
-    </Tags>
-    <Title>
-      {title}
-      <Rating>{rating} ⭐</Rating>
-    </Title>
-    <Description>{description}</Description>
-    <Button>Saiba mais</Button>
-  </CardItemContainer>
-)
+  imageSrc,
+  tags
+}) => {
+  return (
+    <CardItemContainer>
+      <Image src={imageSrc} alt={title} />
+      <Title>
+        {title}
+        <Rating>{rating}</Rating>
+      </Title>
+      <Description>{description}</Description>
+      {tags && (
+        <Tags>
+          {tags.map((tag, index) => (
+            <Tag key={index}>{tag}</Tag>
+          ))}
+        </Tags>
+      )}
+      <Button>Peça agora!</Button>
+    </CardItemContainer>
+  )
+}
 
-export default CardItem
+export default Card

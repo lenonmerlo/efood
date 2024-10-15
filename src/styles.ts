@@ -5,6 +5,7 @@ export const cores = {
   corFundo: '#FFF8F2', // Cor do fundo da página
   corFundoCards: '#FFFFFF', // Cor de fundo dos cards
   corBotao: '#E66767', // Cor do botão
+  corBotaoClicado: '#c0392b',
   corTextoBotao: '#FFEBD9', // Cor do texto do botão
   corRodape: '#FFEBD9', // Cor do rodapé
   corRating: '#f39c12' // Cor do rating

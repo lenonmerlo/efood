@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   CardContainer,
   Image,
@@ -10,6 +11,7 @@ import {
 } from './styles'
 
 interface CardProps {
+  id: number // Adicionei o id para navegar
   title: string
   description: string
   rating: number
@@ -17,22 +19,31 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
+  id,
   title,
   description,
   rating,
   imageSrc
-}) => (
-  <CardContainer>
-    <Image src={imageSrc} alt={title} />
-    <DivDescription>
-      <Title>
-        {title}
-        <Rating>⭐ {rating}</Rating>
-      </Title>
-      <Description>{description}</Description>
-      <Button>Saiba mais</Button>
-    </DivDescription>
-  </CardContainer>
-)
+}) => {
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate(`/restaurant/${id}`) // Navega para a página do restaurante usando o id
+  }
+
+  return (
+    <CardContainer>
+      <Image src={imageSrc} alt={title} />
+      <DivDescription>
+        <Title>
+          {title}
+          <Rating>⭐ {rating}</Rating>
+        </Title>
+        <Description>{description}</Description>
+        <Button onClick={handleNavigate}>Saiba mais</Button>
+      </DivDescription>
+    </CardContainer>
+  )
+}
 
 export default Card

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const CardContainer = styled.div`
-  background-color: #fff;
+  background-color: ${cores.corFundoCards};
   border: 1px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -40,7 +40,7 @@ export const Description = styled.p`
 
 export const Rating = styled.span`
   font-size: 1rem;
-  color: #f39c12;
+  color: ${cores.corRating};
 `
 
 export const Button = styled.button`
@@ -53,6 +53,6 @@ export const Button = styled.button`
   display: block; /* Para que o botão ocupe toda a largura possível */
 
   &:hover {
-    background-color: #c0392b;
+    background-color: ${cores.corBotaoClicado};
   }
 `
