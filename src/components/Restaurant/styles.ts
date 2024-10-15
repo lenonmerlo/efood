@@ -1,7 +1,5 @@
 // src/components/Restaurant/styles.ts
 import styled from 'styled-components'
-import { cores } from '../../styles'
-import imagem_de_fundo from '../../assets/images/imagem_de_fundo.png'
 
 // Container do restaurante
 export const RestaurantContainer = styled.div`
@@ -9,58 +7,26 @@ export const RestaurantContainer = styled.div`
   height: auto;
 `
 
-// Cabeçalho do restaurante
-export const RestaurantHeader = styled.header`
-  position: relative;
-  width: 100%;
-  height: 400px;
-  background-image: url(${imagem_de_fundo});
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: reight;
-  color: white;
-  font-size: 2rem;
-`
-
-// Informações do restaurante
-export const RestaurantInfo = styled.div`
-  text-align: reight;
-`
-
-// Título do restaurante
-export const RestaurantTitle = styled.h1`
-  font-size: 32px;
-  font-weight: bold;
-  color: #fff;
-  padding: 170px;
-  margin-top: 100px;
-`
-
-// Categoria do restaurante
-export const RestaurantCategory = styled.span`
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 25px;
-  margin-reight: 170px;
-  font-size: 28px;
-`
-
-// Seção dos itens do menu
 export const MenuItems = styled.section`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin: 30px auto;
   max-width: 1200px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Empilha os itens em telas menores */
+    align-items: center;
+  }
 `
 
 // Item do menu
 export const MenuItem = styled.div`
-  background-color: ${cores.corFundoCardPage};
-  color: ${cores.corTextoPage};
+  background-color: #f9f9f9; /* Exemplo de cor, ajuste conforme seu design */
+  color: #333;
   border: 1px solid #ddd;
   width: 320px;
-  height: 340px
+  height: 340px;
   margin: 8px;
   padding: 8px;
   text-align: right;
@@ -77,20 +43,20 @@ export const MenuItemImage = styled.img`
 export const MenuItemTitle = styled.h3`
   font-size: 16px;
   margin: 10px 0;
-  color: ${cores.corTextoPage};
+  color: #333;
 `
 
 // Descrição do item do menu
 export const MenuItemDescription = styled.p`
   font-size: 14px;
-  color: ${cores.corTextoPage};
+  color: #555;
   margin-bottom: 10px;
 `
 
 // Botão de adicionar ao carrinho
 export const AddToCartButton = styled.button`
-  background-color: ${cores.corBotaoPage};
-  color: ${cores.corTextoBotaoPage};
+  background-color: #ff6347;
+  color: white;
   font-weight: bold;
   padding: 10px 20px;
   border: none;
