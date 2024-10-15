@@ -59,7 +59,8 @@ export const MenuItem = styled.div`
   background-color: ${cores.corFundoCardPage};
   color: ${cores.corTextoPage};
   border: 1px solid #ddd;
-  width: 300px;
+  width: 320px;
+  height: 340px
   margin: 8px;
   padding: 8px;
   text-align: reight;
@@ -74,14 +75,14 @@ export const MenuItemImage = styled.img`
 
 // Título do item do menu
 export const MenuItemTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 16px;
   margin: 10px 0;
   color: ${cores.corTextoPage};
 `
 
 // Descrição do item do menu
 export const MenuItemDescription = styled.p`
-  font-size: 1rem;
+  font-size: 14px;
   color: ${cores.corTextoPage};
   margin-bottom: 10px;
 `
@@ -93,11 +94,11 @@ export const AddToCartButton = styled.button`
   font-weight: bold;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
+  width: 300px;
 
   &:hover {
-    background-color: #ff4c3b;
+    background-color: #fff8f2;
   }
 `
