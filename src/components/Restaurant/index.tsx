@@ -21,8 +21,8 @@ const RestaurantPage = () => {
     <RestaurantContainer>
       <RestaurantHeader>
         <RestaurantInfo>
-          <RestaurantTitle>La Dolce Vita Trattoria</RestaurantTitle>
           <RestaurantCategory>Italiana</RestaurantCategory>
+          <RestaurantTitle>La Dolce Vita Trattoria</RestaurantTitle>
         </RestaurantInfo>
       </RestaurantHeader>
 

@@ -8,7 +8,11 @@ export const cores = {
   corBotaoClicado: '#c0392b',
   corTextoBotao: '#FFEBD9', // Cor do texto do botão
   corRodape: '#FFEBD9', // Cor do rodapé
-  corRating: '#f39c12' // Cor do rating
+  corRating: '#f39c12', // Cor do rating
+  corFundoCardPage: '#E66767',
+  corBotaoPage: '#FFEBD9',
+  corTextoBotaoPage: '#E66767',
+  corTextoPage: '#FFEBD9'
 }
 
 export const GlobalCss = createGlobalStyle`
