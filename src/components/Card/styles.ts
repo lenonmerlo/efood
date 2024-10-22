@@ -1,58 +1,75 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import theme from '../../global/theme'
+
+type CardProps = {
+  $card: 'primary' | 'second'
+}
 
 export const CardContainer = styled.div`
-  background-color: ${cores.corFundoCards};
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  text-align: left;
-  margin: 0; /* Removendo margem */
-  padding: 0; /* Removendo padding */
-  width: 100%; /* Largura do card */
-  box-sizing: border-box; /* Incluindo padding e borda no cálculo de largura */
+  max-width: 100%;
+  display: block;
+  position: relative;
 `
 
-export const Image = styled.img`
-  width: 100%; /* Imagem ocupa toda a largura do card */
-  height: auto; /* Mantém a proporção da imagem */
-  border-bottom: 1px solid #ddd;
-  margin: 0; /* Removendo margem */
-  padding: 0; /* Removendo padding */
+export const ContainerTags = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
 `
 
-export const DivDescription = styled.div`
-  padding: 16px; /* Espaçamento interno do conteúdo do card */
-  box-sizing: border-box; /* Incluindo padding no cálculo de largura */
-  margin: 0; /* Removendo margem */
+export const CardImage = styled.div<CardProps>`
+  width: 100%;
+  border: 1px solid transparent;
+  background-color: ${(props) =>
+    props.$card === 'primary' ? '' : theme.Colors.text};
+  height: ${(props) => (props.$card === 'primary' ? '300px' : '200px')};
+  padding: ${(props) => (props.$card === 'primary' ? 0 : '8px 8px 0 8px')};
 `
 
-export const Title = styled.h3`
-  font-size: 1.25rem;
-  margin: 0.75rem 0; /* Ajuste se precisar de espaço entre o título e o texto */
+export const Cover = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `
 
-export const Description = styled.p`
-  font-size: 1rem;
-  color: ${cores.corTexto};
-  margin: 0; /* Removendo margem */
+export const CardContent = styled.div<CardProps>`
+  display: block;
+  padding: 8px;
+  background-color: ${(props) =>
+    props.$card === 'primary' ? theme.Colors.white : theme.Colors.text};
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-color: ${(props) =>
+    props.$card === 'primary' ? theme.Colors.text : 'transparent'};
 `
 
-export const Rating = styled.span`
-  font-size: 1rem;
-  color: ${cores.corRating};
+export const CardHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 `
 
-export const Button = styled.button`
-  background-color: ${cores.corTexto};
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  display: block; /* Para que o botão ocupe toda a largura possível */
+export const Title = styled.h2<CardProps>`
+  color: ${(props) =>
+    props.$card === 'primary' ? theme.Colors.text : theme.Colors.primary};
+  font-size: 18px;
+  font-weight: 700;
+`
 
-  &:hover {
-    background-color: ${cores.corBotaoClicado};
-  }
+export const Text = styled.p<CardProps>`
+  color: ${(props) =>
+    props.$card === 'primary' ? theme.Colors.text : theme.Colors.primary};
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 16px;
+`
+
+export const Icon = styled.img`
+  width: 21px;
+  height: 21px;
+  margin-left: 8px;
 `

@@ -1,47 +1,99 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import Button from '../Button'
+import Tag from '../Tag'
+
 import {
-  CardContainer,
-  Image,
   Title,
-  Description,
-  Rating,
-  Button,
-  DivDescription
+  Text,
+  Icon,
+  CardHeader,
+  CardContent,
+  CardImage,
+  CardContainer,
+  ContainerTags,
+  Cover
 } from './styles'
 
-interface CardProps {
-  id: number // Adicionei o id para navegar
+type CardProps = {
+  card: 'primary' | 'second'
+  kindButton: 'button' | 'link'
   title: string
+  cover: string
   description: string
-  rating: number
-  imageSrc: string
+  nameButton: string
+  iconName?: string
+  rating?: string
+  tagType?: string | undefined
+  tagHighlight?: boolean | undefined
+  to?: string
+  handleClick?: () => void
 }
 
-const Card: React.FC<CardProps> = ({
-  id,
+const Card = ({
+  card = 'primary',
+  kindButton = 'link',
   title,
+  cover,
   description,
+  iconName,
   rating,
-  imageSrc
-}) => {
-  const navigate = useNavigate()
+  nameButton,
+  tagType,
+  tagHighlight,
+  to,
+  handleClick
+}: CardProps) => {
+  function renderTypeButton(kind: string) {
+    return (
+      <Button
+        kind={kindButton}
+        placeholder={nameButton}
+        onClick={kind === 'button' ? handleClick : undefined}
+        to={kind === 'link' ? `${to}` : undefined}
+        displayMode={card === 'primary' ? 'inlineBlock' : 'fullWidth'}
+        themeMode={card}
+      />
+    )
+  }
 
-  const handleNavigate = () => {
-    navigate(`/restaurant/${id}`) // Navega para a página do restaurante usando o id
+  function renderTags(type: string, highlight: boolean | undefined) {
+    if (type && highlight === true) {
+      return (
+        <ContainerTags>
+          <Tag placeholder="Destaque da semana" />
+          <Tag placeholder={type} />
+        </ContainerTags>
+      )
+    }
+
+    return (
+      <ContainerTags>
+        <Tag placeholder={type} />
+      </ContainerTags>
+    )
   }
 
   return (
     <CardContainer>
-      <Image src={imageSrc} alt={title} />
-      <DivDescription>
-        <Title>
-          {title}
-          <Rating>⭐ {rating}</Rating>
-        </Title>
-        <Description>{description}</Description>
-        <Button onClick={handleNavigate}>Saiba mais</Button>
-      </DivDescription>
+      <CardImage $card={card}>
+        <Cover src={cover} alt={cover} />
+      </CardImage>
+
+      <CardContent $card={card}>
+        <CardHeader>
+          <Title $card={card}>{title}</Title>
+
+          <CardHeader>
+            {rating && <Title $card={card}>{rating}</Title>}
+            {iconName && <Icon src={iconName} alt={iconName} />}
+          </CardHeader>
+        </CardHeader>
+
+        <Text $card={card}>{description}</Text>
+
+        {renderTypeButton(kindButton)}
+      </CardContent>
+
+      {tagType && renderTags(tagType, tagHighlight)}
     </CardContainer>
   )
 }

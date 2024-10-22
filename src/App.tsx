@@ -1,21 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import CardContainer from './components/CardContainer'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+
+import { store } from './store'
+import Router from './routes/routes'
+import Cart from './containers/Cart'
 import Footer from './components/Footer'
-import Header from './components/Header'
-import RestaurantPage from './pages/RestaurantPage'
-import { GlobalCss } from './styles'
+
+import GlobalStyle from './global/globalStyle'
 
 function App() {
   return (
-    <Router>
-      <GlobalCss />
-      <Header />
-      <Routes>
-        <Route path="/" element={<CardContainer />} />
-        <Route path="/restaurant/:id" element={<RestaurantPage />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Router />
+        <Footer />
+        <Cart />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
